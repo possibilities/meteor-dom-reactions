@@ -9,14 +9,11 @@
   color: grey;
 }
 
-.reaction-field {
+.stamp-field, .reaction-field {
   padding: 5px 10px;
 }
 
-.reaction {
-}
-
-.reaction.active {
+.reaction-field.active {
   background-color: lightBlue;
 }
 

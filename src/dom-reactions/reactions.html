@@ -20,11 +20,11 @@
 </template>
 
 <template name="reaction">
-  <tr data-source="{{elementID}}" class="reaction">
-    <td class="reaction-field">
+  <tr class="reaction">
+    <td class="stamp-field">
       <em>{{stampIfUnique}}</em>
     </td>
-    <td class="reaction-field">
+    <td class="reaction-field" data-source="{{elementID}}">
       {{name}}
     </td>
   </tr>

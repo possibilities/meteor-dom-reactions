@@ -26,7 +26,6 @@ _.mixin(_.str.exports());
 
   var previousStamp;
   Handlebars.registerHelper('stampIfUnique', function(reaction) {
-    console.log(this, reaction);
     var space = '&nbsp;';
     var stamp = (this.stamp !== previousStamp) ? this.stamp : space;
     if (stamp !== space)
@@ -54,8 +53,8 @@ _.mixin(_.str.exports());
 
     Template.reaction.events = {
       // TODO find out why we couldn't use Meteor's mouseenter/mouseleave
-      'mouseover .reaction': function(e) {
-        var $target = $(e.currentTarget);
+      'mouseover .reaction-field': function(e) {
+        var $target = $(e.target);
         $target.toggleClass('active');
 
         var sourceID = $target.data('source');
@@ -67,8 +66,8 @@ _.mixin(_.str.exports());
           backgroundColor: 'lightBlue'
         });
       },
-      'mouseout .reaction': function(e) {
-        var $target = $(e.currentTarget);
+      'mouseout .reaction-field': function(e) {
+        var $target = $(e.target);
         $target.toggleClass('active');
 
         var sourceID = $target.data('source');
