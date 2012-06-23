@@ -6,7 +6,10 @@
     'red',
     'blue',
     'orange',
-    'purple'
+    'purple',
+    'fuchsia',
+    'indigo',
+    'gray'
   ];
 
   var nextColor = function() {
