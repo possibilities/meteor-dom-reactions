@@ -1,0 +1,17 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.karma-box {
+  border: 1px solid black;
+}
+
+.karma-stamp {
+  background-color: grey;
+  color: white;
+}
+
+.controls {
+  margin-top: 20px;
+}

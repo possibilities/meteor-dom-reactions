@@ -1,0 +1,57 @@
+<head>
+  <title>DOM Reactions</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>DOM Reactions</h1>
+    <p><em>An experimental tool for learning about DOM reactions in Meteor</em></p>
+    {{domReactions}}
+  </div>
+</body>
+
+<template name="wrapperTemplate">
+  <div class="row">
+    <div class="span6">
+      <h2>Wrapper Template</h2>
+      
+      <div class="well">
+        <p>Seems pretty reasonable. The content of the <em>outer karma container</em> doesn't update when the <em>inner karma container</em> does. Might be nice if the <code>karma-box</code>es only re-rendered when their associated <code>Session</code> values change (e.g. currently <code>#user_1_karma</code> re-renders ) when the <code>Session</code> key <code>user_2_karma</code> changes.</p>
+      </div>
+      
+      <iframe height="800px" frameborder="0" class="span6" src="http://{{#isDevelopment}}localhost:7896{{else}}dom-reaction-experiment-1.meteor.com{{/isDevelopment}}"></iframe>
+    </div>
+    <div class="span6">
+      
+    </div>
+  </div>
+</template>
+
+<template name="nestedTemplates">
+  <div class="row">
+    <div class="span6">
+      <h2>Nested Templates</h2>
+
+      <div class="well">
+        <p>Right now it seems like this is what you need to do to draw boundaries around an some part of your page. By placing each piece in it's own nested template it is unaffected by it's sibling element data changes</p>
+      </div>
+
+      <iframe height="800px" frameborder="0" class="span6" src="http://{{#isDevelopment}}localhost:6785{{else}}dom-reaction-experiment-2.meteor.com{{/isDevelopment}}"></iframe>
+    </div>
+    <div class="span6">
+      
+    </div>
+  </div>
+</template>
+
+<template name="iframe">
+  <div class="row">
+    <div class="span6">
+      <h2>Iframe</h2>
+      <iframe height="800px" frameborder="0" class="span6" src="http://{{#isDevelopment}}localhost:5674{{else}}dom-reaction-experiment-3.meteor.com{{/isDevelopment}}"></iframe>
+    </div>
+    <div class="span6">
+      
+    </div>
+  </div>
+</template>
