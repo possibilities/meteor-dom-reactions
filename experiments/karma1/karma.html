@@ -9,9 +9,9 @@
 <template name="karmaContainer">
 
   <div class="karma-container">
-    {{showReactions "outer karma container template"}}
-
-    {{> karma}}
+    {{#showReactions "outer karma container template"}}
+      {{> karma}}
+    {{/showReactions}}
   </div>
 
 </template>
@@ -20,30 +20,36 @@
 
   <div class="karma-container">
 
-    {{showReactions "inner karma container template"}}
+    {{#showReactions "inner karma container template"}}
+      
+      <div id="user_1_karma" class="karma-box">
+        {{#showReactions "user 1 karma change"}}
+          User 1 karma: {{user_1_karma}}
+        {{/showReactions}}
+      </div>
 
-    <div id="user_1_karma" class="karma-box">
-      {{showReactions "user 1 karma change"}}
-      User 1 karma: {{user_1_karma}}
-    </div>
+      <div id="user_2_karma" class="karma-box">
+        {{#showReactions "user 2 karma change"}}
+          User 2 karma: {{user_2_karma}}
+        {{/showReactions}}
+      </div>
 
-    <div id="user_2_karma" class="karma-box">
-      {{showReactions "user 2 karma change"}}
-      User 2 karma: {{user_2_karma}}
-    </div>
+      <div id="user_1_and_2_karma" class="karma-box">
+        {{#showReactions "user 1 & 2 karma change"}}
+          <p>User 1 karma: {{user_1_karma}}</p>
+          <p>User 2 karms {{user_2_karma}}</p>
+        {{/showReactions}}
+      </div>
 
-    <div id="user_1_and_2_karma" class="karma-box">
-      {{showReactions "user 1 & 2 karma change"}}
-      <p>User 1 karma: {{user_1_karma}}</p>
-      <p>User 2 karms {{user_2_karma}}</p>
-    </div>
+    {{/showReactions}}
 
   </div>
 
   <div class="controls" style="clear:both;">
-    {{showReactions "controls"}}
-    <button class="btn btn-info user_1_button">Increment User 1 Karma</button>
-    <button class="btn btn-info user_2_button">Increment User 2 Karma</button>
+    {{#showReactions "controls"}}
+      <button class="btn btn-info user_1_button">Increment User 1 Karma</button>
+      <button class="btn btn-info user_2_button">Increment User 2 Karma</button>
+    {{/showReactions}}
   </div>
 
 </template>

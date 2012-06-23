@@ -20,9 +20,9 @@
     return color;
   };
 
-  Handlebars.registerHelper('showReactions', function(name) {
+  Handlebars.registerHelper('showReactions', function(name, options) {
     var now = moment().format('h:mm:ss');
-    return new Handlebars.SafeString('<div class="reaction-stamp" style="background-color:' + nextColor() + '">' + name + ': ' + now + '</div>');
+    return new Handlebars.SafeString('<span><div class="reaction-stamp" style="background-color:' + nextColor() + '">' + name + ': ' + now + '</div>' + options.fn(this) + '</span>');
   });
   
 })();
