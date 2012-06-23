@@ -22,7 +22,7 @@
 
   Handlebars.registerHelper('showReactions', function(name) {
     var now = moment().format('h:mm:ss');
-    return new Handlebars.SafeString('<div class="karma-stamp" style="background-color:' + nextColor() + '">' + name + ': ' + now + '</div>');
+    return new Handlebars.SafeString('<div class="reaction-stamp" style="background-color:' + nextColor() + '">' + name + ': ' + now + '</div>');
   });
   
 })();
