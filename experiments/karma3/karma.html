@@ -15,12 +15,8 @@
     {{> user_1_karma}}
     {{> user_2_karma}}
     {{> user_1_and_2_karma}}
+    {{> controls}}
 
-  </div>
-
-  <div class="controls" style="clear:both;">
-    <button class="btn btn-info user_1_button">Increment User 1 Karma</button>
-    <button class="btn btn-info user_2_button">Increment User 2 Karma</button>
   </div>
 
 </template>
@@ -47,5 +43,13 @@
     {{showReactions "user 1 & 2 karma change"}}
     <p>User 1 karma: {{user_1_karma}}</p>
     <p>User 2 karms {{user_2_karma}}</p>
+  </div>
+</template>
+
+<template name="controls">
+  <div class="controls" style="clear:both;">
+    {{showReactions "controls"}}
+    <button class="btn btn-info user_1_button">Increment User 1 Karma</button>
+    <button class="btn btn-info user_2_button">Increment User 2 Karma</button>
   </div>
 </template>
