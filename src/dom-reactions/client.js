@@ -25,12 +25,11 @@ _.mixin(_.str.exports());
   };
 
   var previousStamp;
-  Handlebars.registerHelper('stampIfUnique', function(reaction) {
-    var space = '&nbsp;';
-    var stamp = (this.stamp !== previousStamp) ? this.stamp : space;
-    if (stamp !== space)
-      previousStamp = stamp;
-    return new Handlebars.SafeString(stamp);
+  Handlebars.registerHelper('stamp', function(reaction) {
+    if (this.stamp !== previousStamp) {
+      previousStamp = this.stamp;
+      return new Handlebars.SafeString(this.stamp);
+    }
   });
 
   Handlebars.registerHelper('showReactions', function(name, options) {
@@ -43,7 +42,7 @@ _.mixin(_.str.exports());
       elementID: elementID
     });
     
-    return new Handlebars.SafeString('<span id="' + elementID + '">' + options.fn(this) + '</span>');
+    return new Handlebars.SafeString('<span id="' + elementID + '" class="dom-reaction-marker">' + options.fn(this) + '</span>');
   });
   
   Meteor.startup(function() {
