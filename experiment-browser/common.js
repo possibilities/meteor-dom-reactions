@@ -9,8 +9,8 @@ new Demo({
   tabs: {
     name: 'domReactions',
     tabs: [
-      'wrapperTemplate',
       'nestedTemplates',
+      'multipleTemplates',
       'iframe'
     ]
   }
