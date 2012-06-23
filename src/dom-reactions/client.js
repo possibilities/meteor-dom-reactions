@@ -24,6 +24,16 @@ _.mixin(_.str.exports());
     return color;
   };
 
+  var previousStamp;
+  Handlebars.registerHelper('stampIfUnique', function(reaction) {
+    console.log(this, reaction);
+    var space = '&nbsp;';
+    var stamp = (this.stamp !== previousStamp) ? this.stamp : space;
+    if (stamp !== space)
+      previousStamp = stamp;
+    return new Handlebars.SafeString(stamp);
+  });
+
   Handlebars.registerHelper('showReactions', function(name, options) {
     var now = moment().format('h:mm:ss');
     var elementID = _.slugify(name);
@@ -35,34 +45,36 @@ _.mixin(_.str.exports());
     });
     
     return new Handlebars.SafeString('<span id="' + elementID + '">' + options.fn(this) + '</span>');
-    
-    // return new Handlebars.SafeString('<span id="' + elementID + '"><div class="reaction-stamp" style="background-color:' + nextColor() + '">' + name + ': ' + now + '</div>' + options.fn(this) + '</span>');
   });
   
   Meteor.startup(function() {
     Template.reactionConsole.reactions = function() {
-      // TODO what? use limit on mongo query
-      var reactions = Reactions.find({}).fetch();
-      return _.last(reactions, 20);
+      return Reactions.find();
     };
 
     Template.reaction.events = {
       // TODO find out why we couldn't use Meteor's mouseenter/mouseleave
-      'mouseover': function(e) {
-        e.stopPropagation();
-        var sourceID = $(e.currentTarget).data('source');
+      'mouseover .reaction': function(e) {
+        var $target = $(e.currentTarget);
+        $target.toggleClass('active');
+
+        var sourceID = $target.data('source');
         var $source = $('#' + sourceID);
+
         var previousBackgroundColor = $source.parent().css('backgroundColor');
-        $(e.currentTarget).data('previousBackgroundColor', previousBackgroundColor);
+        $target.data('previousBackgroundColor', previousBackgroundColor);
         $source.parent().css({
           backgroundColor: 'lightBlue'
         });
       },
-      'mouseleave': function(e) {
-        e.stopPropagation();
-        var sourceID = $(e.currentTarget).data('source');
+      'mouseout .reaction': function(e) {
+        var $target = $(e.currentTarget);
+        $target.toggleClass('active');
+
+        var sourceID = $target.data('source');
         var $source = $('#' + sourceID);
-        var previousBackgroundColor = $(e.currentTarget).data('previousBackgroundColor');
+
+        var previousBackgroundColor = $target.data('previousBackgroundColor');
         if (previousBackgroundColor) {
           $source.parent().css({
             backgroundColor: previousBackgroundColor

@@ -1,11 +1,25 @@
-.reaction-stamp {
-  color: white;
-}
-
 .reaction-console {
-  padding: 10px;
-  background-color: white;
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+.reaction-console h4 {
+  padding: 10px;
+  color: grey;
+}
+
+.reaction-field {
+  padding: 5px 10px;
+}
+
+.reaction {
+}
+
+.reaction.active {
+  background-color: lightBlue;
+}
+
+.divider {
+  margin: 0;
 }

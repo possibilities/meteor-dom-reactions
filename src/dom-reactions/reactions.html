@@ -1,16 +1,31 @@
 <template name="reactionConsole">
   {{#if reactions}}
-    <div class="reaction-console">
-      {{#each reactions}}
-        {{> reaction}}
-      {{/each}}
+      <table class="reaction-console well">
+        <tbody>
+          <tr>
+            <td colspan="2">
+              <h4>DOM Reactions</h4>
+              <hr class="divider">
+            </td>
+          </tr>
+          {{#each reactions}}
+            {{> reaction}}
+          {{/each}}
+        </tbody>
+      </table>
     </div>
+  {{else}}
+    <em>No reactions!</em>
   {{/if}}
 </template>
 
 <template name="reaction">
-  <div class="reaction" data-source="{{elementID}}">
-    {{stamp}}
-    {{name}}
-  </div>
+  <tr data-source="{{elementID}}" class="reaction">
+    <td class="reaction-field">
+      <em>{{stampIfUnique}}</em>
+    </td>
+    <td class="reaction-field">
+      {{name}}
+    </td>
+  </tr>
 </template>
