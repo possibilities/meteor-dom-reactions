@@ -3,6 +3,10 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
+  api.use('templating', 'client');
+
+  api.add_files('underscore.strings.js', 'client');
   api.add_files('client.js', 'client');
   api.add_files('reactions.css', 'client');
+  api.add_files('reactions.html', 'client');
 });

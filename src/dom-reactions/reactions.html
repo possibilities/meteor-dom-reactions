@@ -1,0 +1,16 @@
+<template name="reactionConsole">
+  {{#if reactions}}
+    <div class="reaction-console">
+      {{#each reactions}}
+        {{> reaction}}
+      {{/each}}
+    </div>
+  {{/if}}
+</template>
+
+<template name="reaction">
+  <div class="reaction" data-source="{{elementID}}">
+    {{stamp}}
+    {{name}}
+  </div>
+</template>
