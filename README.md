@@ -8,7 +8,7 @@ An experimental tool for learning about DOM reactions in Meteor
 
 In any template use the provided `showReactions` helper. Pass a unique label as the only argument:
 
-    {{showReactions "an very cool element"}}
+    {{showReactions "a very cool element"}}
 
 This will insert a block in the DOM indicating when it was last rendered.
 
