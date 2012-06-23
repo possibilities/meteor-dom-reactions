@@ -3,12 +3,19 @@ body {
   padding: 0 !important;
 }
 
+.karma-container {
+  border: 3px solid grey;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #E0E0E0;
+}
+
 .karma-box {
-  border: 1px solid black;
+  border: 2px solid grey;
+  margin-top: 5px;
 }
 
 .karma-stamp {
-  background-color: grey;
   color: white;
 }
 

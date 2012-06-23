@@ -7,14 +7,20 @@
 </body>
 
 <template name="karmaContainer">
-  {{showReactions "outer karma container template"}}
-  {{> karma}}
+
+  <div class="karma-container">
+    {{showReactions "outer karma container template"}}
+
+    {{> karma}}
+  </div>
+
 </template>
 
 <template name="karma">
-  {{showReactions "inner karma container template"}}
 
-  <div>
+  <div class="karma-container">
+
+    {{showReactions "inner karma container template"}}
 
     <div id="user_1_karma" class="karma-box">
       {{showReactions "user 1 karma change"}}

@@ -15,11 +15,12 @@
   <div class="row">
     <div class="span6">
       <div class="well">
-        <p>Seems pretty reasonable. The content of the <em>outer karma container</em> doesn't update when the <em>inner karma container</em> does. Might be nice if the <code>karma-box</code>es only re-rendered when their associated <code>Session</code> values change (e.g. currently <code>#user_1_karma</code> re-renders ) when the <code>Session</code> key <code>user_2_karma</code> changes.</p>
+        <p>The content of the <em>outer karma container</em> doesn't update when the <em>inner karma container</em> does. But everything inside the inner container re-renders if either of the <code>Session</code> values change (e.g. the markup for both users 1 and 2 are re-rendered when even when only user 2's data changes). Could liveui *protect* the non-affected DOM elements the same way it protects focused form fields? Is that desirable or is the best practice to break out the markup into separate templates?</p>
       </div>
       
       <iframe height="800px" frameborder="0" class="span6" src="http://{{#isDevelopment}}localhost:7896{{else}}dom-reaction-experiment-1.meteor.com{{/isDevelopment}}"></iframe>
     </div>
+
     <div class="span6">
       {{{code "experiments/karma1/karma.html"}}}
       {{{code "experiments/karma1/client/karma.js"}}}
@@ -33,7 +34,7 @@
     <div class="span6">
 
       <div class="well">
-        <p>Right now it seems like this is what you need to do to draw boundaries around an some part of your page. By placing each piece in it's own nested template it is unaffected by it's sibling element data changes</p>
+        <p>Right now it seems like this is what you need to do to draw boundaries around some part of your page. By placing each piece in it's own nested template it is unaffected by it's sibling element data changes (solution to my concerns in <em>Wrapper Template</em> experiment)</p>
       </div>
 
       <iframe height="800px" frameborder="0" class="span6" src="http://{{#isDevelopment}}localhost:6785{{else}}dom-reaction-experiment-2.meteor.com{{/isDevelopment}}"></iframe>
