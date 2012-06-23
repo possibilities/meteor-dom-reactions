@@ -4,7 +4,7 @@ new Demo({
   },
   github: {
     user: 'possibilities',
-    repo: 'dom-reactions'
+    repo: 'meteor-dom-reactions'
   },
   tabs: {
     name: 'domReactions',
