@@ -1,6 +1,6 @@
 new Demo({
   hosts: {
-    production: ['dom-reactions.meteor.com']
+    production: ['dom-reaction-experiments.meteor.com']
   },
   github: {
     user: 'possibilities',

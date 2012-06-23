@@ -1,4 +1,4 @@
-// (function() {
+(function() {
 
   var colorIndex = 0;
   var colors = [
@@ -23,4 +23,4 @@
     return new Handlebars.SafeString('<div class="karma-stamp" style="background-color:' + nextColor() + '">' + name + ': ' + now + '</div>');
   });
   
-// })();
+})();
