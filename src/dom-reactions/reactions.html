@@ -20,7 +20,7 @@
 </template>
 
 <template name="reaction">
-  <tr class="reaction">
+  <tr class="reaction {{#if first}}first{{/if}} {{#if last}}last{{/if}}">
     <td class="stamp-field">
       <em>{{stamp}}</em>
     </td>
