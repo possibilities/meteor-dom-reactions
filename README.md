@@ -18,4 +18,4 @@ The helper is made to be used in your own project but it would be great to build
 
 ## TODO
 
-Do some experiments that iterate over cursors
+More complex experiments
