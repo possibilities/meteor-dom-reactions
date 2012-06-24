@@ -32,6 +32,7 @@ _.mixin(_.str.exports());
 
     Template.reaction.events = {
       // TODO find out why we couldn't use Meteor's mouseenter/mouseleave
+      // (UPDATE: Seems broken and hard to fix -> https://github.com/meteor/meteor/issues/198)
       'mouseover .reaction-field': function(e) {
         var $target = $(e.target);
         $target.toggleClass('active');
